@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WORLD MAP</title>
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/memo.css" />
+    <link rel="stylesheet" href="../css/svg.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+        integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous" />
+</head>
+
+<body>
+    <main class="main">
+        <div class="custom-select-wrapper">
+            <div class="custom-select">
+                <div class="custom-select-trigger" tabindex="0">
+                    <span>KR</span>
+                    <div class="arrow"></div>
+                </div>
+
+                <ul class="custom-options">
+                    <li class="custom-option selected" data-value="KR">KR</li>
+                    <li class="custom-option" data-value="JP">JP</li>
+                    <li class="custom-option" data-value="US">US</li>
+                </ul>
+            </div>
+
+            <button class="custom-select-btn">
+                <i class="fas fa-plane fa-2x"></i>
+            </button>
+        </div>
+
+        <object class="map-object" data="../images/worldHigh.svg" type="image/svg+xml"></object>
+
+        <button class="back-btn" title="뒤로 가기">
+            <i class="fas fa-arrow-left fa-2x"></i>
+            <span>BACK</span>
+        </button>
+
+        <div class="overlay"></div>
+        <!-- 디스크립션 모달 -->
+        
+        <div class="description-container">
+            <div class="description-modal-container">
+                <div class="description-popup">
+                    <div class="description-modal-background">
+                        <div class="description-modal"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- // 디스크립션 모달 -->
+        <!-- 메모 모달 -->
+        <div class="memo-container">
+            <div class="memo-modal-container">
+                <div class="memo-popup">
+                    <button type="button" class="btn close">
+                        <i class="bx bx-x">X</i>
+                    </button>
+                    <div class="memo-modal-background">
+                        <div class="memo-modal">
+                            <form action="" class="memo-form">
+                                <label for="" class="memo-modal-title"><span>&#x1F680;</span></label>
+                                <p>20자까지 입력 가능해요!</p>
+                                <input class="input-todo" autofocus maxlength="20" />
+                            </form>
+                            <ul class="todos"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- // 메모 모달 -->
+        <!-- description table -->
+        <div class="description">
+            <table>
+                <caption>DESCRIPTION</caption>
+                <tbody class="description-contents">
+                    <tr>
+                        <th scope="row">수도</th>
+                        <td>Smith</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">인구</th>
+                        <td>Jackson</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">통화</th>
+                        <td>Doe</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">GDP</th>
+                        <td>Doe</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- // description table -->
+            <!-- description egg 버튼 -->
+            <button class="description-egg-btn">
+                <img class="description-egg-img" src="../images/_Pngtree_egg_4180797-removebg-preview.png"
+                    onmouseover="this.src ='../images/ClipartKey_3245073__1_-removebg-preview.png'"
+                    onmouseout="this.src ='../images/_Pngtree_egg_4180797-removebg-preview.png'" alt="" />
+            </button>
+            <!-- // description egg 버튼 -->
+        </div>
+
+        <!-- 메모 버튼 -->
+        <div class="memo">
+            <button class="btn memo-toggle-popup">MEMO</button>
+        </div>
+        <!-- // 메모 버튼 -->
+    </main>
+    <svg width="400" height="100">
+        <text class="svgText">japan</text>
+    </svg>
+    <script src="../js/app.js"></script>
+    <script src="../js/jaewon.js"></script>
+</body>
+
+</html>
