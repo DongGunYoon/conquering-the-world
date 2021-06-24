@@ -127,6 +127,8 @@ const worldClock = (() => {
   }
 })();
 
+// DESCRIPTION
+
 // MAIN PAGE
 document.querySelector('.map-obj').onload = () => {
   const HALF_MAP_WIDTH = 1009.11 / 2;
