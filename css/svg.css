@@ -1,23 +1,24 @@
 svg {
-    font-family: 'orbitron', 'Russo One', sans-serif;
     position: absolute;
-    top: 10%;
-    left: 10%;
+    top: 40%;
+    left: 20%;
+    box-shadow: 0 0 3px 3px #181818;
+    background-color: rgba(204, 204, 204, 0.6);
+    border-radius: 20px;
 }
 
-svg text {
+.svgText {
     text-transform: uppercase;
     animation: stroke 4s forwards;
-    stroke-width: 2;
-    stroke: #365fa0;
     font-size: 80px;
-    transform: translate(15%, 90%);
+    transform: translate(7%, 78%);
+    letter-spacing: 5px;
 }
 
 @keyframes stroke {
     0% {
         fill: rgba(255, 255, 255, 0);
-        stroke: rgba(54, 95, 160, 1);
+        stroke: rgba(0, 0, 0, 1);
         stroke-dashoffset: 25%;
         stroke-dasharray: 0 50%;
         stroke-width: 2;
@@ -25,17 +26,19 @@ svg text {
 
     50% {
         fill: rgba(255, 255, 255, 0);
-        stroke: rgb(255, 251, 30);
+        /* stroke: rgb(255, 251, 30); */
     }
     
     80% {
         fill: rgba(255, 255, 255, 0);
-        stroke: rgba(54, 95, 160, 1);
+        stroke: rgba(255, 255, 255, 1);
         stroke-width: 3;
     }
 
     100% {
-        fill: rgba(255, 255, 255, 0.89);
+        fill: rgba(255, 255, 255, 1);
+        /* fill: #181818; */
+        /* fill: rgba(54, 95, 160, 1); */
         stroke: rgba(0, 0, 0, 0);
         stroke-dashoffset: -25%;
         stroke-dasharray: 50% 0;
