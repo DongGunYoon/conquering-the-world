@@ -382,3 +382,82 @@ body {
 .world-clock {
   width: 360px;
 }
+
+/* description */
+.description-wrapper {
+  background: #ccc;
+  border-radius: 20px;
+
+  position: absolute;
+  top: 15%;
+  left: 55%;
+
+  width: 500px;
+  height: 50%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.description {
+  background: #ccc;
+  
+  width: 100%;
+  flex: 1 0 0;
+}
+
+.description-caption {
+  font-size: 3rem;
+  padding: 15px;
+}
+
+.description-contents > tr {
+  border-top: 2px solid #181818;
+  border-bottom: 2px solid #181818;
+}
+
+.description-contents > tr > th {
+  border-right: 2px solid #181818;
+  vertical-align: middle;
+}
+
+.description-contents > tr > td {
+  vertical-align: middle;
+  padding-left: 20px;
+}
+
+.description-egg-btn {
+  background: url("../images/egg.svg") no-repeat 50% 50%;
+  border: none;
+
+  width: 80px;
+  height: 80px;
+
+  cursor: pointer;
+}
+
+.description-egg-btn:hover {
+  background-image: url("../images/chicken.svg");
+}
+
+/* memo */
+.modal-container {
+}
+
+.memo-btn {
+  background: #ccc;
+  border-radius: 20px;
+  border: none;
+
+  width: 500px;
+  height: 80px;
+
+  position: absolute;
+  top: 72%;
+  left: 55%;
+
+  font-family: 'orbitron';
+  font-size: 2.2rem;
+  cursor: pointer;
+}
