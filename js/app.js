@@ -275,6 +275,7 @@ const memo = (() => {
   const $memoList = document.querySelector('.memo-list');
   const $memoModalForm = document.querySelector('.memo-modal-form');
   const $memoInput = document.querySelector('.memo-input');
+  const $memoModalLabel = document.querySelector('.memo-modal-label');
 
   let memos = [];
   let currentCountryCode = '';
@@ -393,6 +394,9 @@ const memo = (() => {
     },
     hideMemoWrapper() {
       $memoWrapper.style.display = 'none';
+    },
+    setModalLabel(countryCode) {
+      $memoModalLabel.textContent = `Let's Conquer ${countryName[countryCode]}!`;
     }
   };
 })();
@@ -497,6 +501,7 @@ document.querySelector('.map-obj').onload = () => {
     const moveY = HALF_MAP_HEIGHT - targetCenterY * scaleRatio;
 
     memo.setCurrentCountryCode($target.id);
+    memo.setModalLabel($target.id);
     description.setCountryInfo($target.id);
     countryNameAni.setTextContent($target.id);
 
