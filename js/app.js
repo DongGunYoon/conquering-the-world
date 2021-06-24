@@ -122,6 +122,7 @@ const worldClock = (() => {
     hideWorldClock() {
       clearInterval(setIntervalId);
       $clockWrapper.style.opacity = 0;
+      $worldClock.textContent = '';
     }
   }
 })();
@@ -191,13 +192,13 @@ document.querySelector('.map-obj').onload = () => {
     const moveX = HALF_MAP_WIDTH - targetCenterX * scaleRatio;
     const moveY = HALF_MAP_HEIGHT - targetCenterY * scaleRatio;
 
+    dropdownMenu.hideDropDownMenu();
     translateAndScaleMap(moveX, moveY, scaleRatio);
     setTimeout(() => {
       hideCountryWithoutTarget($target);
     }, 1000);
     setTimeout(() => {
       showBackBtn();
-      dropdownMenu.hideDropDownMenu();
       translateAndScaleMap(moveX - 230, moveY + 100, scaleRatio);
     }, 2000);
     setTimeout(() => {
