@@ -367,12 +367,11 @@ body {
 
 /* clock */
 .clock-wrapper {
-  width: 500px;
   opacity: 0;
 
   position: absolute;
   top: 18%;
-  left: 10%;
+  left: 18%;
 
   color: #ccc;
   font-size: 60px;
@@ -381,5 +380,5 @@ body {
 }
 
 .world-clock {
-  text-align: center;
+  width: 360px;
 }
