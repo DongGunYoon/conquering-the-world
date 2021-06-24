@@ -661,31 +661,27 @@ body {
   position: absolute;
   top: 45%;
   left: 12%;
-  box-shadow: var(--box-shadow);
-  background-color: rgba(204, 204, 204, 0.8);
-  /* background-color: var(--third-background-color); */
+  box-shadow: 0 0 3px 3px rgba(204, 204, 204, 0.4);
+  background-color: #1D1E1D;
   border-radius: 20px;
-
-  text-align: center;
-
   display: none;
 }
 
 .svg-text {
   text-transform: uppercase;
-  animation: stroke 4s forwards;
+  animation: stroke 4s ease;
   font-size: 80px;
   fill: var(--light-gray);
   transform: translate(7%, 78%);
   letter-spacing: 5px;
-  stroke: rgba(0, 0, 0, 1);
-  stroke-width: 2px;
+  stroke: #FFF;
+  stroke-width: 1px;
 }
 
 @keyframes stroke {
   0% {
     fill: rgba(255, 255, 255, 0);
-    stroke: rgba(255, 255, 255, 1);
+    stroke: rgba(38, 38, 202, 0.5);
     stroke-dashoffset: 25%;
     stroke-dasharray: 0 50%;
     stroke-width: 2;
@@ -697,12 +693,12 @@ body {
 
   80% {
     fill: rgba(255, 255, 255, 0);
-    stroke: rgba(255, 255, 255, 0.8);
+    stroke: rgba(255, 255, 255, 0.7);
     stroke-width: 3;
   }
 
   100% {
-    fill: rgba(255, 255, 255, 1);
+    fill: var(--light-gray);
     stroke: rgba(0, 0, 0, 0);
     stroke-dashoffset: -25%;
     stroke-dasharray: 50% 0;
