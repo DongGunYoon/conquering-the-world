@@ -27,7 +27,7 @@
           <legend class="login-form-title login-form-common">WELCOME</legend>
 
           <div class="user-id-wrapper">
-            <input type="text" class="user-id-input login-form-common" id="userId" namd="userId"
+            <input type="text" class="user-id-input login-form-common" id="userId" name="userId"
               placeholder="Username" />
             <label for="userId" class="a11y">아이디</label>
             <span>
@@ -59,12 +59,12 @@
       <div class="custom-select-wrapper">
         <div class="custom-select">
           <div class="custom-select-trigger" tabindex="0">
-            <span>KR</span>
+            <span>--</span>
             <div class="arrow"></div>
           </div>
 
           <ul class="custom-options">
-            <li class="custom-option selected" data-value="KR" tabindex="0">KR</li>
+            <li class="custom-option" data-value="KR" tabindex="0">KR</li>
             <li class="custom-option" data-value="JP" tabindex="0">JP</li>
             <li class="custom-option" data-value="US" tabindex="0">US</li>
           </ul>
@@ -88,37 +88,67 @@
     </article>
 
     <article class="description-wrapper">
-      <table class="description">
-        <caption class="description-caption">DESCRTION</caption>
-        <tbody class="description-contents">
-          <tr>
-            <th scope="row">수도</th>
-            <td>Smith</td>
-          </tr>
-          <tr>
-            <th scope="row">인구</th>
-            <td>Jackson</td>
-          </tr>
-          <tr>
-            <th scope="row">통화</th>
-            <td>Doe</td>
-          </tr>
-          <tr>
-            <th scope="row">GDP</th>
-            <td>Doe</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="description-box">
+        <table class="description">
+          <caption class="description-caption">DESCRIPTION</caption>
+          <tbody class="description-contents">
+            <tr>
+              <th scope="row">수도</th>
+              <td>Smith</td>
+            </tr>
+            <tr>
+              <th scope="row">인구</th>
+              <td>Jackson</td>
+            </tr>
+            <tr>
+              <th scope="row">통화</th>
+              <td>Doe</td>
+            </tr>
+            <tr>
+              <th scope="row">GDP</th>
+              <td>Doe</td>
+            </tr>
+          </tbody>
+        </table>
+        <button class="description-egg-btn" title="달걀"></button>
+      </div>
 
-      <button class="description-egg-btn" title="달걀"></button>
+      <div class="description-modal-box">
+        <div class="description-modal"></div>
+        <button class="description-modal-exit-btn">X</button>
+      </div>
     </article>
 
     <article class="memo-wrapper">
-      <div class="modal-container">
-        <div class="modal"></div>
-      </div>
-
       <button class="memo-btn">MEMO</button>
+
+      <div class="memo-modal">
+        <form class="memo-modal-form">
+          <label for="memoInput" class="memo-modal-label">Let's Conquer U.S.A!</label>
+          <input type="text" class="memo-input" id="memoInput" autofocus maxlength="20" />
+          <p class="memo-modal-desc">20자까지 입력 가능합니다!</p>
+        </form>
+        <ul class="memo-list">
+          <li class="memo-item">
+            <span>1</span>
+            <i class="remove-memo far fa-times-circle"></i>
+          </li>
+          <li class="memo-item">
+            <span>2</span>
+            <i class="remove-memo far fa-times-circle"></i>
+          </li>
+          <li class="memo-item">
+            <span>3</span>
+            <i class="remove-memo far fa-times-circle"></i>
+          </li>
+          <li class="memo-item">
+            <span>4</span>
+            <i class="remove-memo far fa-times-circle"></i>
+          </li>
+        </ul>
+
+        <button class="memo-modal-close-btn" title="exit modal">X</button>
+      </div>
     </article>
   </main>
 

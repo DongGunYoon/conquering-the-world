@@ -8,10 +8,6 @@ body {
 }
 
 /* test */
-.whiteout,
-.login-wrapper {
-  display: none !important;
-}
 
 /* common */
 .a11y {
@@ -42,6 +38,9 @@ body {
 }
 
 .whiteout {
+  background: #1d1e1d;
+  opacity: 0.5;
+
   position: absolute;
   left: 0;
   right: 0;
@@ -384,7 +383,7 @@ body {
 }
 
 /* description */
-.description-wrapper {
+.description-box {
   background: #ccc;
   border-radius: 20px;
 
@@ -395,14 +394,14 @@ body {
   width: 500px;
   height: 50%;
 
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
 }
 
 .description {
   background: #ccc;
-  
+
   width: 100%;
   flex: 1 0 0;
 }
@@ -412,17 +411,17 @@ body {
   padding: 15px;
 }
 
-.description-contents > tr {
+.description-contents>tr {
   border-top: 2px solid #181818;
   border-bottom: 2px solid #181818;
 }
 
-.description-contents > tr > th {
+.description-contents>tr>th {
   border-right: 2px solid #181818;
   vertical-align: middle;
 }
 
-.description-contents > tr > td {
+.description-contents>tr>td {
   vertical-align: middle;
   padding-left: 20px;
 }
@@ -441,8 +440,38 @@ body {
   background-image: url("../images/chicken.svg");
 }
 
+.description-modal-box {
+  background-color: #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  
+  min-width: 660px;
+  padding: 20px 40px;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  z-index: 2;
+
+  display: none;
+}
+
+.description-modal-exit-btn {
+  background: transparent;
+  border: none;
+
+  position: absolute;
+  top: 2px;
+  right: 2px;
+
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
 /* memo */
-.modal-container {
+.memo-wrapper {
+  display: none;
 }
 
 .memo-btn {
@@ -460,4 +489,152 @@ body {
   font-family: 'orbitron';
   font-size: 2.2rem;
   cursor: pointer;
+}
+
+.memo-modal {
+  display: none;
+
+  background: #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+  box-sizing: border-box;
+
+  min-width: 700px;
+  padding: 20px 40px;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  z-index: 2;
+}
+
+.memo-modal-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.memo-modal-label {
+  font-size: 2.8rem;
+  font-weight: 100;
+}
+
+.memo-input {
+  background: rgba(100, 100, 100, 0.2);
+  border: 1px solid #e7ecee;
+  border-radius: 6px;
+
+  display: block;
+  padding: 10px 16px;
+
+  order: 1;
+
+  font-size: 1.25rem;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+.memo-input:disabled {
+  border: 1px solid rgb(247, 0, 0);
+}
+
+.memo-input:focus {
+  /* border-color: #23b7e5;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+    0 0 8px rgba(102, 175, 233, 0.6); */
+}
+
+.memo-input::placeholder {
+  color: #999;
+}
+
+.memo-modal-desc {
+  margin: 30px 0;
+  font-size: 1.5rem;
+}
+
+.memo-list {
+  margin-top: 20px;
+
+  list-style: none;
+}
+
+.memo-item {
+  background: rgba(100, 100, 100, 0.2);
+  border: 1px solid #e7ecee;
+
+  height: 20px;
+  padding: 10px 15px;
+  margin-bottom: -1px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.memo-item:first-child {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.memo-item:last-child {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.remove-memo {
+  opacity: 0;
+  cursor: pointer;
+}
+
+.memo-item:hover>.remove-memo {
+  opacity: 1;
+}
+
+.memo-modal-close-btn {
+  background: transparent;
+  border: none;
+
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.active-modal {
+  animation: active-memo-ani 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+@keyframes active-memo-ani {
+  0% {
+    transform: translate(-50%, -50%) scaleX(0) scaleY(0.005);
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scaleX(1) scaleY(0.005);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scaleY(1) scaleX(1);
+  }
+}
+
+.deactive-modal {
+  transform: translate(-50%, -50%) scale(1);
+  animation: deactive-memo-ani 0.8s 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+@keyframes deactive-memo-ani {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scaleX(1) scaleY(0.005);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scaleX(0) scaleY(0.005);
+  }
 }
