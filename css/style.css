@@ -448,6 +448,16 @@ body {
   background-image: url("../images/chicken.svg");
 }
 
+.description-modal-title {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.description-modal-content {
+  line-height: 1.5rem;
+}
+
 .description-modal-box {
   background-color: var(--second-background-color);
   box-shadow: var(--box-shadow);
