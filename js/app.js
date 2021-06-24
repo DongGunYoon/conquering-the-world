@@ -174,7 +174,7 @@ const description = (() => {
         <td>${gdp}</td>
       </tr>`;
 
-    $descriptionModal.innerHTML = `<p>알고 계셨나요?</p><p>${egg}</p>`;
+    $descriptionModal.innerHTML = `<p class="description-modal-title">알고 계셨나요?</p><p class="description-modal-content">${egg}</p>`;
   };
 
   const setCountriesInfo = _countriesInfo => {
