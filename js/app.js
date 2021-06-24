@@ -397,6 +397,28 @@ const memo = (() => {
   };
 })();
 
+// COUNTRY NAME ANI
+const countryNameAni = (() => {
+  const $textAni = document.querySelector('.text-ani');
+  const $svgText = document.querySelector('.svg-text');
+
+  return {
+    setTextContent(countryCode) {
+      $svgText.textContent = countryName[countryCode];
+
+      $svgText.style.transform = `translate(${
+        countryCode === 'US' ? 17 : 7
+      }%, 78%)`;
+    },
+    show() {
+      $textAni.style.display = 'block';
+    },
+    hide() {
+      $textAni.style.display = 'none';
+    }
+  };
+})();
+
 // MAIN PAGE
 document.querySelector('.map-obj').onload = () => {
   const mapObj = document.querySelector('.map-obj');
@@ -407,6 +429,9 @@ document.querySelector('.map-obj').onload = () => {
   $clockWrapper.style.left = `${positionX + 90}px`;
   $clockWrapper.style.top = `${positionY + 70}px`;
 
+  const $textAni = document.querySelector('.text-ani');
+  $textAni.style.left = `${positionX + 65}px`;
+  $textAni.style.top = `${positionY + 300}px`;
 
   const HALF_MAP_WIDTH = 1009.11 / 2;
   const HALF_MAP_HEIGHT = 665.24 / 2;
@@ -473,6 +498,7 @@ document.querySelector('.map-obj').onload = () => {
 
     memo.setCurrentCountryCode($target.id);
     description.setCountryInfo($target.id);
+    countryNameAni.setTextContent($target.id);
 
     dropdownMenu.hideDropDownMenu();
     translateAndScaleMap(moveX, moveY, scaleRatio);
@@ -488,6 +514,7 @@ document.querySelector('.map-obj').onload = () => {
     }, 2000);
     setTimeout(() => {
       memo.showMemoWrapper();
+      countryNameAni.show();
       description.show();
     }, 2550);
   };
@@ -507,6 +534,7 @@ document.querySelector('.map-obj').onload = () => {
     worldClock.hideWorldClock();
 
     memo.hideMemoWrapper();
+    countryNameAni.hide();
     description.hide();
     hideBackBtn();
 

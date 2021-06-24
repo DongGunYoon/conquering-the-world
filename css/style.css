@@ -444,7 +444,7 @@ body {
   background-color: #ccc;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
-  
+
   min-width: 660px;
   padding: 20px 40px;
 
@@ -636,5 +636,58 @@ body {
 
   100% {
     transform: translate(-50%, -50%) scaleX(0) scaleY(0.005);
+  }
+}
+
+/* svg */
+.text-ani {
+  position: absolute;
+  top: 45%;
+  left: 12%;
+  box-shadow: 0 0 3px 3px #181818;
+  background-color: rgba(204, 204, 204, 0.6);
+  border-radius: 20px;
+
+  text-align: center;
+
+  display: none;
+}
+
+.svg-text {
+  text-transform: uppercase;
+  animation: stroke 4s forwards;
+  font-size: 80px;
+  transform: translate(7%, 78%);
+  letter-spacing: 5px;
+}
+
+@keyframes stroke {
+  0% {
+    fill: rgba(255, 255, 255, 0);
+    stroke: rgba(0, 0, 0, 1);
+    stroke-dashoffset: 25%;
+    stroke-dasharray: 0 50%;
+    stroke-width: 2;
+  }
+
+  50% {
+    fill: rgba(255, 255, 255, 0);
+    /* stroke: rgb(255, 251, 30); */
+  }
+
+  80% {
+    fill: rgba(255, 255, 255, 0);
+    stroke: rgba(255, 255, 255, 1);
+    stroke-width: 3;
+  }
+
+  100% {
+    fill: rgba(255, 255, 255, 1);
+    /* fill: #181818; */
+    /* fill: rgba(54, 95, 160, 1); */
+    stroke: rgba(0, 0, 0, 0);
+    stroke-dashoffset: -25%;
+    stroke-dasharray: 50% 0;
+    stroke-width: 40;
   }
 }
