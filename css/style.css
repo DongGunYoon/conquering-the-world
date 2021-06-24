@@ -209,6 +209,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 0.8;
 }
 
 .back-btn {
@@ -661,7 +662,8 @@ body {
   top: 45%;
   left: 12%;
   box-shadow: var(--box-shadow);
-  background-color: rgba(204, 204, 204, 0.6);
+  background-color: rgba(204, 204, 204, 0.8);
+  /* background-color: var(--third-background-color); */
   border-radius: 20px;
 
   text-align: center;
@@ -673,14 +675,17 @@ body {
   text-transform: uppercase;
   animation: stroke 4s forwards;
   font-size: 80px;
+  fill: #CCC;
   transform: translate(7%, 78%);
   letter-spacing: 5px;
+  stroke: rgba(0, 0, 0, 1);
+  stroke-width: 2px;
 }
 
 @keyframes stroke {
   0% {
     fill: rgba(255, 255, 255, 0);
-    stroke: rgba(0, 0, 0, 1);
+    stroke: rgba(255, 255, 255, 1);
     stroke-dashoffset: 25%;
     stroke-dasharray: 0 50%;
     stroke-width: 2;
@@ -688,19 +693,16 @@ body {
 
   50% {
     fill: rgba(255, 255, 255, 0);
-    /* stroke: rgb(255, 251, 30); */
   }
 
   80% {
     fill: rgba(255, 255, 255, 0);
-    stroke: rgba(255, 255, 255, 1);
+    stroke: rgba(255, 255, 255, 0.8);
     stroke-width: 3;
   }
 
   100% {
     fill: rgba(255, 255, 255, 1);
-    /* fill: #181818; */
-    /* fill: rgba(54, 95, 160, 1); */
     stroke: rgba(0, 0, 0, 0);
     stroke-dashoffset: -25%;
     stroke-dasharray: 50% 0;
