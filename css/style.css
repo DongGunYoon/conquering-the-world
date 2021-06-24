@@ -10,7 +10,7 @@ body {
 /* test */
 .whiteout,
 .login-wrapper {
-  /* display: none !important; */
+  display: none !important;
 }
 
 /* common */
@@ -363,4 +363,23 @@ body {
 
   color: #ccc;
   cursor: pointer;
+}
+
+/* clock */
+.clock-wrapper {
+  width: 500px;
+  opacity: 0;
+
+  position: absolute;
+  top: 18%;
+  left: 10%;
+
+  color: #ccc;
+  font-size: 60px;
+  letter-spacing: 5px;
+  transition: '0.5s';
+}
+
+.world-clock {
+  text-align: center;
 }

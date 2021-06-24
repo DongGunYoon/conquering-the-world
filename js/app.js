@@ -43,11 +43,17 @@ const dropdownMenu = (() => {
     [...$customOptions.children].forEach(option => {
       option.classList.toggle('selected', $target === option);
     });
+    $customSpan.textContent = $target.textContent;
   };
 
-  $customSelect.onclick = () => {
+  const toggleCustomSelect = () => {
     $customSelect.classList.toggle('open');
-  };
+  }
+
+  $customSelect.onclick = toggleCustomSelect;
+  $customSelect.onkeyup = e => {
+    if (e.key === 'Enter') toggleCustomSelect();
+  }
 
   $customOptions.onclick = e => {
     if (
@@ -57,8 +63,11 @@ const dropdownMenu = (() => {
       return;
 
     toggleCustomOptions(e.target);
-    $customSpan.textContent = e.target.textContent;
   };
+
+  $customOptions.onkeyup = e => {
+    if (e.key === 'Enter') toggleCustomOptions(e.target);
+  }
 
   return {
     showDropDownMenu() {
@@ -68,6 +77,51 @@ const dropdownMenu = (() => {
     hideDropDownMenu() {
       $customSelectWrapper.style.opacity = 0;
       $customSelectWrapper.disabled = true;
+    }
+  }
+})();
+
+// CLOCK
+const worldClock = (() => {
+  const HOUR_TO_MIN = 60;
+  const MIN_TO_MILISEC = 60000;
+
+  const $clockWrapper = document.querySelector('.clock-wrapper');
+  const $worldClock = document.querySelector('.world-clock');
+  const timeZone = {
+    KR: 9,
+    US: -4,
+    JP: 9,
+    CA: -4,
+    CH: 8
+  }
+
+  let setIntervalId = -1;
+
+  const formatTime = (() => {
+    const format = time => (time < 10) ? "0" + time : time;
+    return (h, m, s) => `${format(h)}:${format(m)}:${format(s)}`;
+  })();
+
+  return {
+    showWorldClock(countryCode) {
+      setIntervalId = setInterval(() => {
+        const date = new Date();
+        const utcTime = date.getTime() + date.getTimezoneOffset() * MIN_TO_MILISEC;
+        const currTime = new Date(utcTime + (timeZone[countryCode] * HOUR_TO_MIN * MIN_TO_MILISEC));
+
+        const hour = currTime.getHours();
+        const minute = currTime.getMinutes();
+        const second = currTime.getSeconds();
+
+        $worldClock.textContent = formatTime(hour, minute, second);
+      }, 1000);
+      
+      $clockWrapper.style.opacity = 1;
+    },
+    hideWorldClock() {
+      clearInterval(setIntervalId);
+      $clockWrapper.style.opacity = 0;
     }
   }
 })();
@@ -146,6 +200,9 @@ document.querySelector('.map-obj').onload = () => {
       dropdownMenu.hideDropDownMenu();
       translateAndScaleMap(moveX - 230, moveY + 100, scaleRatio);
     }, 2000);
+    setTimeout(() => {
+      worldClock.showWorldClock($target.id);
+    }, 2550);
   };
 
   // event handlers
@@ -160,6 +217,7 @@ document.querySelector('.map-obj').onload = () => {
     flag = false;
 
     showCountries();
+    worldClock.hideWorldClock();
     hideBackBtn();
 
     setTimeout(() => {
